@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">  
+</head>
+<body>
+    <h1>Calculadora Basica</h1>
+    <form action="" class="form-container" id="calculadora">
+        <div class="numeros">
+            <input type="text" class="numero" id="num1">
+            <p id="operador"></p>
+            <input type="text" class="numero" id="num2">
+            <br>
+            <p>=</p>
+            <input type="text" class="numero" id="resultado" readonly>
+        </div>
+        <br>
+        <div class="botones">
+            <button class="btn1" type="button" onclick="operacion('+')"> <b>+</b> </button>
+            <button class="btn1" type="button" onclick="operacion('-')"> <b>-</b> </button>
+            <button class="btn1" type="button" onclick="operacion('*')"> <b>*</b> </button>
+            <button class="btn1" type="button" onclick="operacion('/')"> <b>/</b> </button>
+        </div>
+    </form>
+    <script>
+        function operacion(opc){
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            console.log(num1,num2)
+            switch (opc){
+                case '+':
+                    c = num1 + num2;
+                    break;
+                case '-':
+                    c = num1 - num2;
+                    break; 
+                case '*':
+                    c = num1 * num2;
+                    break;    
+                case '/':
+                    c = num1 / num2;
+                    break;   
+            }
+
+            document.getElementById('operador').innerHTML = opc;
+            document.getElementById('resultado').value = parseFloat(c);
+        }
+    </script>
+</body>
+</html>
